@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('spjs', function (Blueprint $table) {
-    $table->enum('status', ['pending', 'review', 'approved', 'rejected', 'revision'])
-        ->default('pending');
-    $table->text('admin_note')->nullable();
-    $table->unsignedBigInteger('reviewed_by')->nullable();
-    $table->timestamp('reviewed_at')->nullable();
+        Schema::table('report_spjs', function (Blueprint $table) {
+            $table->text('admin_note')->nullable();
+            $table->unsignedBigInteger('reviewed_by')->nullable();
+            $table->timestamp('reviewed_at')->nullable();
         });
     }
 
@@ -25,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('spjs', function (Blueprint $table) {
+        Schema::table('report_spjs', function (Blueprint $table) {
             //
         });
     }

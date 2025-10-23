@@ -14,57 +14,57 @@ class FundCategoryPolicy
     
     public function viewAny(AuthUser $authUser): bool
     {
-        return $authUser->can('ViewAny:FundCategory');
+        return $authUser->can('view_any:fund_category');
     }
 
     public function view(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('View:FundCategory');
+        return $authUser->can('view:fund_category');
     }
 
     public function create(AuthUser $authUser): bool
     {
-        return $authUser->can('Create:FundCategory');
+        return $authUser->can('create:fund_category');
     }
 
     public function update(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('Update:FundCategory');
+        return $authUser->can('update:fund_category');
     }
 
     public function delete(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('Delete:FundCategory');
+        return $authUser->can('delete:fund_category');
     }
 
     public function restore(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('Restore:FundCategory');
+        return $authUser->can('restore:fund_category');
     }
 
     public function forceDelete(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('ForceDelete:FundCategory');
+        return $authUser->can('force_delete:fund_category');
     }
 
     public function forceDeleteAny(AuthUser $authUser): bool
     {
-        return $authUser->can('ForceDeleteAny:FundCategory');
+        return $authUser->can('force_delete_any:fund_category');
     }
 
     public function restoreAny(AuthUser $authUser): bool
     {
-        return $authUser->can('RestoreAny:FundCategory');
+        return $authUser->can('restore_any:fund_category');
     }
 
     public function replicate(AuthUser $authUser, FundCategory $fundCategory): bool
     {
-        return $authUser->can('Replicate:FundCategory');
+        return $authUser->can('replicate:fund_category');
     }
 
     public function reorder(AuthUser $authUser): bool
     {
-        return $authUser->can('Reorder:FundCategory');
+        return $authUser->can('reorder:fund_category');
     }
 
 }

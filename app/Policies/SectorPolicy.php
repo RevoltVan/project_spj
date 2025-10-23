@@ -14,57 +14,57 @@ class SectorPolicy
     
     public function viewAny(AuthUser $authUser): bool
     {
-        return $authUser->can('ViewAny:Sector');
+        return $authUser->can('view_any:sector');
     }
 
     public function view(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('View:Sector');
+        return $authUser->can('view:sector');
     }
 
     public function create(AuthUser $authUser): bool
     {
-        return $authUser->can('Create:Sector');
+        return $authUser->can('create:sector');
     }
 
     public function update(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('Update:Sector');
+        return $authUser->can('update:sector');
     }
 
     public function delete(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('Delete:Sector');
+        return $authUser->can('delete:sector');
     }
 
     public function restore(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('Restore:Sector');
+        return $authUser->can('restore:sector');
     }
 
     public function forceDelete(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('ForceDelete:Sector');
+        return $authUser->can('force_delete:sector');
     }
 
     public function forceDeleteAny(AuthUser $authUser): bool
     {
-        return $authUser->can('ForceDeleteAny:Sector');
+        return $authUser->can('force_delete_any:sector');
     }
 
     public function restoreAny(AuthUser $authUser): bool
     {
-        return $authUser->can('RestoreAny:Sector');
+        return $authUser->can('restore_any:sector');
     }
 
     public function replicate(AuthUser $authUser, Sector $sector): bool
     {
-        return $authUser->can('Replicate:Sector');
+        return $authUser->can('replicate:sector');
     }
 
     public function reorder(AuthUser $authUser): bool
     {
-        return $authUser->can('Reorder:Sector');
+        return $authUser->can('reorder:sector');
     }
 
 }

@@ -18,16 +18,14 @@ class UserInfolist
                 TextEntry::make('email_verified_at')
                     ->dateTime()
                     ->placeholder('-'),
-                IconEntry::make('is_admin')
-                    ->boolean(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
                     ->dateTime()
                     ->placeholder('-'),
-                TextEntry::make('sector_id')
-                    ->numeric()
+                TextEntry::make('sector.name')
+                    ->label('Bidang')
                     ->placeholder('-'),
             ]);
     }

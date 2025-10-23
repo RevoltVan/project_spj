@@ -21,7 +21,7 @@ return [
             'pages' => true,
             'widgets' => true,
             'resources' => true,
-            'custom_permissions' => true,
+            'custom_permissions' => false,
         ],
     ],
 
@@ -100,7 +100,7 @@ return [
 
     'permissions' => [
         'separator' => ':',
-        'case' => 'pascal',
+        'case' => 'lower_snake',
         'generate' => true,
     ],
 
@@ -120,8 +120,17 @@ return [
         'merge' => true,
         'generate' => true,
         'methods' => [
-            'viewAny', 'view', 'create', 'update', 'delete', 'restore',
-            'forceDelete', 'forceDeleteAny', 'restoreAny', 'replicate', 'reorder',
+            'viewAny',
+            'view',
+            'create',
+            'update',
+            'delete',
+            'restore',
+            'forceDelete',
+            'forceDeleteAny',
+            'restoreAny',
+            'replicate',
+            'reorder',
         ],
         'single_parameter_methods' => [
             'viewAny',
@@ -170,6 +179,17 @@ return [
                 'update',
                 'delete',
             ],
+            \App\Filament\Resources\ReportSpjs\ReportSpjResource::class => [
+                'viewAny',
+                'view',
+                'create',
+                'update',
+                'delete',
+                'approve',
+                'reject',
+                'revision',
+                'review',
+            ]
         ],
         'exclude' => [
             //
@@ -227,11 +247,10 @@ return [
     */
 
     'custom_permissions' => [
-        'approv_report_spj',
-        'reject_report_spj',
-        'revisi_report_spj',
-        'review_report_spj',
-
+        'approve',
+        'reject',
+        'revision',
+        'review',
     ],
 
     /*

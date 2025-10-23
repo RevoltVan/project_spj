@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Forms\Components\RichEditor\TextColor;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -24,8 +25,15 @@ class UsersTable
                 TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable(),
-                IconColumn::make('is_admin')
-                    ->boolean(),
+                TextColumn::make('sector.name')
+                    ->label('Bidang')
+                    ->sortable(),
+                TextColumn::make('roles')
+                    ->getStateUsing(fn($record) => $record->roles()->pluck('name'))
+                    ->separator(',')
+                    ->listWithLineBreaks()
+                    ->badge()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -34,9 +42,6 @@ class UsersTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('sector_id')
-                    ->numeric()
-                    ->sortable(),
             ])
             ->filters([
                 //

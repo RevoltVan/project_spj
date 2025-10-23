@@ -34,4 +34,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return true;
     }
+
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class);
+    }
 }

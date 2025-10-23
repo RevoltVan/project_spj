@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
@@ -23,10 +24,11 @@ class UserForm
                 TextInput::make('password')
                     ->password()
                     ->required(),
-                Toggle::make('is_admin')
-                    ->required(),
-                TextInput::make('sector_id')
-                    ->numeric(),
+                Select::make('sector_id')
+                    ->relationship('sector', 'name')
+                    ->label('Bidang')
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 }

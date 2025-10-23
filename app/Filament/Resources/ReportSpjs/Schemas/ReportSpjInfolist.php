@@ -42,14 +42,12 @@ class ReportSpjInfolist
                     ->dateTime()
                     ->placeholder('-'),
                 RepeatableEntry::make('proof_images')
+                    ->columnSpanFull()
                     ->getStateUsing(fn ($record) => $record->getMedia('report_spj_proof_images'))
                     ->label('Proof Images')
-                    ->grid(3)
                     ->schema([
-                        ImageEntry::make('file')
-                            ->getStateUsing(fn ($record) => asset($record->getUrl()))
-                            ->imageWidth(100)
-                            ->imageHeight(100)
+                        TextEntry::make('file')
+                            ->getStateUsing(fn($record) => asset($record->getUrl()))
                             ->url(fn ($record) => asset($record->getUrl()))
                             ->openUrlInNewTab(),
                     ])

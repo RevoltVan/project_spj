@@ -25,18 +25,19 @@ class ReportSpjForm
                 TextInput::make('location')
                     ->required(),
                 Select::make('sector_id')
+                    ->label('Bidang')
                     ->relationship('sector', 'name')
                     ->preload()
                     ->searchable()
                     ->required(),
                 Select::make('status')
                     ->options(ReportStatus::class)
+                    ->visible(fn($record) => auth()->user()->hasAnyRole('admin', 'super_admin'))
                     ->default(ReportStatus::Draft)
                     ->required(),
                 TextInput::make('total_budget')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                    ->label('Total Anggaran')
+                    ->required(),
                 TextInput::make('total_realization')
                     ->required()
                     ->numeric()
