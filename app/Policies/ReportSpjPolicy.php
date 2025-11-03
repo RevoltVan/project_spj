@@ -6,8 +6,6 @@ namespace App\Policies;
 
 use Illuminate\Foundation\Auth\User as AuthUser;
 use App\Models\ReportSpj;
-use App\Models\User;
-use App\ReportStatus;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ReportSpjPolicy
@@ -29,10 +27,9 @@ class ReportSpjPolicy
         return $authUser->can('create:report_spj');
     }
 
-    public function update(User $authUser, ReportSpj $reportSpj): bool
+    public function update(AuthUser $authUser, ReportSpj $reportSpj): bool
     {
-        return $authUser->can('update:report_spj') 
-        && ($authUser->hasRole(['super_admin', 'admin']) || in_array($reportSpj->status, [ReportStatus::Draft, ReportStatus::Revision]) );
+        return $authUser->can('update:report_spj');
     }
 
     public function delete(AuthUser $authUser, ReportSpj $reportSpj): bool
